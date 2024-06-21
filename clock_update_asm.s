@@ -42,7 +42,7 @@ set_tod_from_ports:
         idivl   %r8d                            # divided by 60
         movw    %ax,6(%rdi)                     # assigning %ax to tod->time_mins
 
-        movw    %dx,4(%rdi)                     # assigning %dx, the remainder to tod->time_secs
+        movw    %dx,4(%rdi)                     # assigning %dx, the remainder, to tod->time_secs
 
         movb    $1,10(%rdi)                     # setting AM as the default
         cmpw    $11,8(%rdi)                     # checking if hour > 11 i.e. >= 12 to see if its PM or AM
@@ -150,7 +150,7 @@ set_display_from_tod:
 
 .SET_AMPM:
         sarq    $16,%r10                        # shift right by 16 bits
-        andq    $0xF,%r10                      # %r10w holds tod.ampm
+        andq    $0xF,%r10                       # %r10w holds tod.ampm
 
         cmpw    $2,%r10w                        # validity cheks for ampm
         ja      .INVALID_FIELD                  # > 2
