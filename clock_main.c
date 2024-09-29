@@ -20,10 +20,10 @@ int main(int argc, char **argv){
 
     // Calculate the seconds since the beginning of the day
     TIME_OF_DAY_PORT = (info->tm_sec + 60*info->tm_min + 60*60*info->tm_hour)*16;
-  }
-  else{                         // Set time based on argument given
+  } else {                         // Set time based on argument given
     TIME_OF_DAY_PORT = atoi(argv[1]);
   }
+
   printf("TIME_OF_DAY_PORT set to: %d\n", TIME_OF_DAY_PORT);
 
   tod_t tod;
